@@ -1,0 +1,13 @@
+# Runtime (inference + the spike). Any Python >= 3.10.
+numpy
+onnxruntime
+soundfile
+scipy
+
+# Conversion only (convert/). TensorFlow has no 3.14 wheels -- use Python 3.12.
+#   tensorflow
+#   torch
+#   onnx
+#   onnxmltools
+#   onnxconverter-common
+#   onnxscript

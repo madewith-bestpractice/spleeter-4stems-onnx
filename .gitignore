@@ -1,0 +1,24 @@
+# Environments
+.venv/
+.venv312/
+__pycache__/
+*.pyc
+
+# Audio. NOTHING audio is committed, ever: the test material is a commercial
+# recording, and so is everything separated out of it. Bring your own.
+*.wav
+*.mp3
+*.flac
+*.m4a
+
+# Model artefacts. Weights are attached to a GitHub Release, not committed --
+# the fp32 set alone is 157 MB and git is the wrong tool for it.
+*.tar.gz
+*.tar.bz2
+*.pb
+*.pt
+*.onnx
+2stems/
+4stems/
+sherpa-onnx-spleeter-*/
+.DS_Store
