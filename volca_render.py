@@ -1,7 +1,7 @@
 """Render the stems the way the device would actually get them.
 
 Listening to a 44.1 kHz stereo vocal isolation tells you how Spleeter does. It
-does not tell you how *Sampeltu* would sound, which is the only question that
+does not tell you how *Sampultu* would sound, which is the only question that
 matters: the app downmixes to mono and resamples to 31,250 Hz before a byte
 reaches the hardware. Artifacts audible under critical listening at 44.1/stereo
 may or may not survive that, and the only way to know is to listen to the thing

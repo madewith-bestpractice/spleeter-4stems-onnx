@@ -1,6 +1,6 @@
 """Spleeter 2stems via ONNX, with the STFT outside the graph.
 
-This is the spike for Sampeltu's stem feature. It exists to answer four things
+This is the spike for Sampultu's stem feature. It exists to answer four things
 no source could tell us: does the export run, what does the mask maths have to
 be, does it sound right, and how fast is it.
 
