@@ -9,8 +9,9 @@ Deezer ship 4stems as a TensorFlow 1 checkpoint from October 2019.
 export of **2stems** and state plainly: *"We only support the `2-stem` model at
 present."* This is the missing half.
 
-Weights are on the [Releases](../../releases) page: **19.7 MB per stem in fp16,
-75 MB for all four.**
+**Weights: [huggingface.co/Best-Practice/spleeter-4stems-onnx](https://huggingface.co/Best-Practice/spleeter-4stems-onnx)**
+— 19.7 MB per stem in fp16, 75 MB for all four. fp32 is there too, as the source
+of truth. Every file is self-contained; there are no external-data sidecars.
 
 | | |
 |---|---|
@@ -60,10 +61,16 @@ reproduce sherpa's hand-written 2stems mapping (3.04e-04).
 
 ```bash
 pip install -r requirements.txt
-# fetch the four *.fp16.onnx from Releases into convert/4stems/
-python separate4.py average     # -> out4_{vocals,drums,bass,other}.wav
 python stft.py                  # the roundtrip test; run it first
+
+hf download Best-Practice/spleeter-4stems-onnx --include "*.fp16.onnx" \
+    --local-dir convert/4stems
+python separate4.py average     # -> out4_{vocals,drums,bass,other}.wav
 ```
+
+`separate4.py` reads `atomic.wav` from the repo root. There isn't one, and there
+won't be: the material this was developed against is a commercial recording, and
+so is everything separated out of it. Bring your own 44.1 kHz stereo file.
 
 `mask_extension`: **use `average`, not Spleeter's `zeros` default.** The net
 models 1024 of 2049 bins (to ~11 kHz); `zeros` discards everything above, which
